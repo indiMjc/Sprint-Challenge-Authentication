@@ -1,3 +1,4 @@
+//prettier-ignore
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -12,14 +13,14 @@ module.exports = {
   testing: {
     client: 'sqlite3',
     connection: {
-      filename: './database/test.db3'
+      filename: "./database/test.db3"
     },
     useNullAsDefault: true,
     migrations: {
-      directory: './migrations'
+      directory: "./database/migrations"
     },
     seeds: {
-      directory: './seeds'
+      directory: "./database/seeds"
     }
   }
 };
