@@ -26,4 +26,15 @@ describe('auth-router.js', () => {
       expect(users).toHaveLength(1);
     });
   });
+
+  describe('login', () => {
+    it('should return json', () => {
+      return request(server)
+        .post('/api/auth/login')
+        .send({ username: 'testing', password: 'params' })
+        .then(res => {
+          expect(res.type).toMatch(/json/i);
+        });
+    });
+  });
 });
