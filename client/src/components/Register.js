@@ -17,7 +17,6 @@ const Register = props => {
       .post(`http://localhost:3300/api/auth/register`, user)
       .then(res => {
         localStorage.setItem('blabitty', res.data.token);
-        props.history.push('/jokes');
       })
       .catch(err => {
         console.log(err);
