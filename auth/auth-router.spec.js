@@ -36,5 +36,14 @@ describe('auth-router.js', () => {
           expect(res.type).toMatch(/json/i);
         });
     });
+
+    it('invalid credentials should return status 401', async () => {
+      return request(server)
+        .post('/api/auth/login')
+        .send({ username: 'test', password: 'pass' })
+        .then(res => {
+          expect(res.status).toBe(401);
+        });
+    });
   });
 });
