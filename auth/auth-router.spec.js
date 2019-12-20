@@ -19,5 +19,11 @@ describe('auth-router.js', () => {
           expect(res.type).toMatch(/json/i);
         });
     });
+
+    it('should add new user to db', async () => {
+      await Users.add({ username: 'test', password: 'params' });
+      const users = await db('users');
+      expect(users).toHaveLength(1);
+    });
   });
 });
