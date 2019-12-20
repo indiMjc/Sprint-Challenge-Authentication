@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useFormInput } from '../customHooks/useFormInput';
 import axios from 'axios';
 
 const Register = props => {
-  const [user, setuser] = useState({
-    username: '',
-    password: ''
-  });
+  const usernameInput = useFormInput('');
 
-  const handleChange = e => {
-    setuser({ ...user, [e.target.name]: e.target.value });
+  const passwordInput = useFormInput('');
+
+  let user = {
+    username: usernameInput.value,
+    password: passwordInput.value
   };
 
   const register = e => {
@@ -30,27 +31,17 @@ const Register = props => {
       <form>
         <label>
           Username:
-          <input
-            type='text'
-            name='username'
-            value={user.username}
-            onChange={handleChange}
-          />
+          <input type='text' {...usernameInput} required minLength='4' />
         </label>
         <br />
         <br />
         <label>
           Password:
-          <input
-            type='password'
-            name='password'
-            value={user.password}
-            onChange={handleChange}
-          />
+          <input type='password' {...passwordInput} required minLength='4' />
         </label>
+        <br />
+        <button onClick={register}>Register</button>
       </form>
-      <br />
-      <button onClick={register}>Register</button>
     </>
   );
 };
