@@ -28,6 +28,7 @@ router.post('/register', (req, res) => {
       res.status(201).json(saved);
     })
     .catch(err => {
+      console.log(err);
       res.status(500).json(err);
     });
 });
