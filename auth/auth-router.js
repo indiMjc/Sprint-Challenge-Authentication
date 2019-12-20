@@ -29,7 +29,7 @@ router.post('/register', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(500).json({ error: 'Error while registering new user.' });
     });
 });
 
