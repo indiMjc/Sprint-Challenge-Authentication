@@ -14,7 +14,6 @@ const Register = props => {
       .post(`http://localhost:3300/api/auth/register`, formInput.value)
       .then(res => {
         localStorage.setItem('blabitty', res.data.token);
-        props.history.push('/jokes');
       })
       .catch(err => {
         console.log(err);
@@ -53,34 +52,6 @@ const Register = props => {
         <br />
         <button onClick={register}>Register</button>
       </form>
-      {/* <br />
-      <br />
-      <form>
-        <label>Username:</label>
-        <input
-          type='text'
-          name='username'
-          //   value={inputs.username}
-          onChange={handleInputChange}
-          {...inputs.username}
-          required
-          minLength='4'
-        />
-        <br />
-        <br />
-        <label>Password:</label>
-        <input
-          type='password'
-          name='password'
-          //   value={inputs.password}
-          //   onChange={handleInputChange}
-          {...inputs}
-          required
-          minLength='4'
-        />
-        <br />
-        <button onClick={handleSubmit}>Register</button>
-      </form> */}
     </>
   );
 };

@@ -4,12 +4,15 @@ export const useFormInput = template => {
   const formValues = Object.entries({ ...template });
 
   let form = {};
+  //   console.log('form before loop', form);
 
   useEffect(() => {
     formValues.forEach(i => (form[i[0]] = i[1]));
   }, [template, form, formValues]);
+  //   console.log('form after loop', form);
 
   const [value, setValue] = useState(form);
+  //   console.log('value state object', value);
 
   const onChange = useCallback(
     event =>
@@ -19,7 +22,7 @@ export const useFormInput = template => {
       }),
     [value]
   );
-  console.log(value);
+
   return { value, onChange };
 };
 
