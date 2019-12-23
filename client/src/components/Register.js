@@ -3,23 +3,10 @@ import {
   useFormInput,
   registerFormTemplate
 } from '../customHooks/useFormInput';
-import { useNewFormInput } from '../customHooks/useNewHook';
 import axios from 'axios';
 
 const Register = props => {
-  //   const usernameInput = useFormInput('');
-
-  //   const passwordInput = useFormInput('');
   const formInput = useFormInput(registerFormTemplate);
-  console.log(' : formInput', formInput.value);
-
-  //   const user = { ...formInput.value };
-
-  //   console.log(' : user', user);
-  //   let user = {
-  //     username: usernameInput.value,
-  //     password: passwordInput.value
-  //   };
 
   const register = e => {
     e.preventDefault();
@@ -27,16 +14,12 @@ const Register = props => {
       .post(`http://localhost:3300/api/auth/register`, formInput.value)
       .then(res => {
         localStorage.setItem('blabitty', res.data.token);
+        props.history.push('/jokes');
       })
       .catch(err => {
         console.log(err);
       });
   };
-
-  //   const { inputs, handleInputChange, handleSubmit } = useNewFormInput(
-  //     registerFormTemplate
-  //   );
-  //   console.log(' : inputs', inputs);
 
   return (
     <>

@@ -8,14 +8,6 @@ import axios from 'axios';
 const Login = props => {
   const formInput = useFormInput(registerFormTemplate);
 
-  const passwordInput = useFormInput('');
-
-  //   let user = {
-  //     username: usernameInput.value,
-  //     password: passwordInput.value
-  //   };
-  //   console.log(' : user', user);
-
   const login = e => {
     e.preventDefault();
     axios
@@ -31,22 +23,6 @@ const Login = props => {
 
   return (
     <>
-      {/* <br />
-      <br />
-      <form>
-        <label>
-          Username:
-          <input type='text' {...usernameInput} required minLength='4' />
-        </label>
-        <br />
-        <br />
-        <label>
-          Password:
-          <input type='password' {...passwordInput} required minLength='4' />
-        </label>
-        <br />
-        <button onClick={login}>Login</button>
-      </form> */}
       <br />
       <br />
       <form>
@@ -75,7 +51,7 @@ const Login = props => {
           />
         </label>
         <br />
-        <button onClick={login}>Register</button>
+        <button onClick={login}>Login</button>
       </form>
     </>
   );
